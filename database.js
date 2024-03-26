@@ -1,5 +1,3 @@
-module.exports = Database;
-
 const database = [
   {
       id: 1,

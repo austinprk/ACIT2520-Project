@@ -47,7 +47,9 @@ let remindersController = {
     });
     searchResult.title = req.body.title;
     searchResult.description = req.body.description;
+    searchResult.completed = req.body.completed;
     res.redirect("/reminders");
+
     },
 
   delete: (req, res) => {

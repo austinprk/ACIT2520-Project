@@ -1,6 +1,10 @@
 Breakdown of work:
 
-Roger Hsieh
+March 26th (First sprint COMPLETE)
+
+Roger Hsieh:
+- made test commit
+
 
 Kenneth Ng
 

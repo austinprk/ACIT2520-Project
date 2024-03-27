@@ -46,7 +46,7 @@ app.post("/register", authController.registerSubmit);
 app.post("/login", authController.loginSubmit);
 
 
-router.post(
+app.post(
   "/auth/login",
   passport.authenticate("local", {
     successRedirect: "/reminders",

@@ -4,7 +4,14 @@ const database = [
       name: "Cindy Park",
       email: "cindy123@gmail.com",
       password: "cindy123!",
-      reminders: [],
+      reminders: [
+        {
+            id: 1,
+            title: "Grocery shopping",
+            description: "Buy milk and bread from safeway",
+            completed: false,
+        },
+      ],
       role: "admin",
   },
   {

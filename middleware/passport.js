@@ -4,23 +4,23 @@
 //https://www.passportjs.org/packages/passport-local/
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const userController = require("../controllers/userController");
-const GithubStrategy = require("passport-github2").Strategy;
+const userController = require("../controller/userController");
+//const GithubStrategy = require("passport-github2").Strategy;
 
-const githubLogin = new GithubStrategy ({
-  clientID: "478afd75e5054a9ddd03",
-  clientSecret: "86d547a324a46f0e8c98b55923dd6463bc604604",
-  callbackURL: "/auth/github/callback",
-},
-(accessToken, refreshToken, profile, done) => {
-  const user=userController.findOrCreate(profile);
-  return user
-    ? done(null, user)
-    : done(null, false, {
-      message: "Your login details are not valid. Please try again"
-    });
-  }
-);
+// const githubLogin = new GithubStrategy ({
+//   clientID: "478afd75e5054a9ddd03",
+//   clientSecret: "86d547a324a46f0e8c98b55923dd6463bc604604",
+//   callbackURL: "/auth/github/callback",
+// },
+// (accessToken, refreshToken, profile, done) => {
+//   const user=userController.findOrCreate(profile);
+//   return user
+//     ? done(null, user)
+//     : done(null, false, {
+//       message: "Your login details are not valid. Please try again"
+//     });
+//   }
+// );
 
 const localLogin = new LocalStrategy(
   {
@@ -50,4 +50,4 @@ passport.deserializeUser(function (id, done) {
   }
 });
 
-module.exports = passport.use(localLogin) .use(githubLogin);
+module.exports = passport.use(localLogin); //.use(githubLogin);

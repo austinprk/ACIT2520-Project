@@ -20,3 +20,9 @@
 ### Kenneth Ng:
 - commented out passport-github2 code that was causing the server to crash on startup
 - started reworking `reminder_controller.js` to reflect change in structure in `database.js`
+
+## March 28th
+
+### Austin Park:
+- resolved the issue with the logo not apprearing on the login page by correcting the image path.
+

@@ -6,6 +6,7 @@ const session = require("express-session");
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
 const userController = require("./controller/userController");
+const { ensureAuthenticated, isAdmin } = require("./middleware/checkAuth");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -53,6 +54,35 @@ app.post(
     failureRedirect: "/auth/login",
   })
 );
+
+/*
+app.get("/admin", isAdmin, (req, res) => {
+  req.sessionStore.all((err, sessions) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("admin", {
+        sessions: sessions,
+        user:req.user,
+      });
+    }
+  })
+});
+
+app.get("/admin/destroy/:sessionId", (req, res) => {
+  const sessionId = req.params.sessionId;
+
+  req.sessionStore.destroy(sessionId, (error) => {
+    if (error) {
+      console.error("Error", error)
+      res.status(500).send("Error destroying the session");
+    }
+    res.redirect("/admin");
+  })
+})
+
+Need to add an admin page
+*/
 
 app.listen(3001, function () {
   console.log(

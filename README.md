@@ -6,6 +6,8 @@
 - made test commit
 - git stash
 - implemented "update" function from `reminder_controller.js`
+- inserted the additional files needed for user passport authentication
+- tried to troubleshoot on the error messages after the additional files have been imported
 
 ### Kenneth Ng:
 - implemented "delete" function from `reminder_controller.js`
@@ -25,4 +27,11 @@
 
 ### Austin Park:
 - resolved the issue with the logo not apprearing on the login page by correcting the image path.
+
+## Apil 1st
+
+### Roger Hsieh:
+- attempted to create the admin role which can terminate other users' active session
+- got stuck so reviewed some online resources
+- still stuck
 

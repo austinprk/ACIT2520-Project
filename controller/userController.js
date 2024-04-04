@@ -1,7 +1,8 @@
-const userModel = require("../models/userModel").userModel;
+const userModel = require("../models/userModel");
+let { database } = require("../database");
 
 const findOrCreate = (profile) => {
-  let user = userModel.findBygitId({id: profile.id});
+  let user = database.userModel.findBygitId({id: profile.id});
   if (user) {
     return user;
   } else {

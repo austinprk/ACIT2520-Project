@@ -34,4 +34,16 @@
 - attempted to create the admin role which can terminate other users' active session
 - got stuck so reviewed some online resources
 - still stuck
+- what do?
+- help
+
+## April 4th
+
+### Roger Hsieh:
+- attemped to complete the passport sprint
+- ran into many error messages but resolved a lot
+- worked for approx 2 hours but not complete yet
+
+### Ostin Bark:
+- Disturbed Roger while he's working
 

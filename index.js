@@ -44,7 +44,7 @@ app.post("/reminder/delete/:id", reminderController.delete);
 app.get("/register", authController.register);
 app.get("/login", authController.login);
 app.post("/register", authController.registerSubmit);
-app.post("/admin",authController.admin);
+//app.post("/admin", authController.admin);
 app.post("/login", authController.loginSubmit);
 
 

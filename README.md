@@ -57,3 +57,8 @@
 - [   ] You must include the ability for ADMINS to remotely destroy a session. 
 - Have not completed the 5th criteria, which is the admin portion
 
+# April 5th
+
+### Austin Park:
+- Completed implementing ADMINS previleges on the website, enabling users with the "admin" role in database.js to destroy sessions.
+- Began development on the "Sign out" feature, which is not initially part of the project scope.

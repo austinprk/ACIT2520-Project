@@ -1,11 +1,12 @@
 let  { database } = require("../database");
+const { ensureAuthenticated, isAdmin } = require("../middleware/checkAuth");
 
 let remindersController = {
   isLoggedIn:(req,res) => {
     return req.isAuthenticated();
   },
   list: (req, res) => {
-    let user = database.find((user) => user.email === req.user.email);
+    let user = database.find((user) => user.name === req.user.name);
     res.render("reminder/index", { reminders: user.reminders, isLoggedIn:remindersController.isLoggedIn});
   },
 
@@ -14,9 +15,9 @@ let remindersController = {
   },
 
   listOne: (req, res) => {
-    let user = database.find((user) => user.email === req.user.email);
+    let user = database.find((user) => user.name === req.user.name);
     let reminderToFind = req.params.id;
-    let searchResult = database.reminders.find(function (reminder) {
+    let searchResult = user.reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     });
     if (searchResult != undefined) {
@@ -27,9 +28,9 @@ let remindersController = {
   },
 
   create: (req, res) => {
-    let user = database.find((user) => user.email === req.user.email);
+    let user = database.find((user) => user.name === req.user.name);
     let reminder = {
-      id: database.reminders.length + 1,
+      id: user.reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
       completed: false,
@@ -39,16 +40,16 @@ let remindersController = {
   },
 
   edit: (req, res) => {
-    let user = database.find((user) => user.email === req.user.email);
+    let user = database.find((user) => user.name === req.user.name);
     let reminderToFind = req.params.id;
-    let searchResult = database.reminders.find(function (reminder) {
+    let searchResult = user.reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     });
     res.render("reminder/edit", { reminderItem: searchResult });
   },
 
   update: (req, res) => {
-    let user = database.find((user) => user.email === req.user.email);
+    let user = database.find((user) => user.name === req.user.name);
     let reminderToFind = req.params.id;
     let searchResult = user.reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
@@ -61,9 +62,9 @@ let remindersController = {
   },
 
   delete: (req, res) => {
-    let user = database.find((user) => user.email === req.user.email);
+    let user = database.find((user) => user.name === req.user.name);
     let reminderToFind = req.params.id;
-    let searchResult = database.reminders.find(function (reminder) {
+    let searchResult = user.reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     });
     user.reminders.pop(searchResult);

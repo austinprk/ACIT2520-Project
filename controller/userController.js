@@ -1,15 +1,14 @@
 const userModel = require("../models/userModel");
 let { database } = require("../database");
 
-const findOrCreate = (profile) => {
-  let user = database.userModel.findBygitId({id: profile.id});
+const findOrCreate = (email) => {
+  let user = database.userModel.findOne((user) => user.email === email) ;
   if (user) {
     return user;
   } else {
     let user = userModel.create({
-      id: profile.id,
-      name: profile.username,
-      provider: profile.provider,
+      email: user.email,
+      name: user.name,
     });
     return user;
   }

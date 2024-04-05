@@ -27,7 +27,14 @@ let database = [
       name: "Jonathan Chen",
       email: "jonathan123@gmail.com",
       password: "jonathan123!",
-      reminders: [],
+      reminders: [
+        {
+            id: 1,
+            title: "Test",
+            description: "Test test test",
+            completed: false,
+        },
+      ],
       role:"user",
   },
   ];

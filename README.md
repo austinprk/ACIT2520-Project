@@ -8,6 +8,7 @@
 - implemented "update" function from `reminder_controller.js`
 - inserted the additional files needed for user passport authentication
 - tried to troubleshoot on the error messages after the additional files have been imported
+- imported user models from the previous passport lab to this project's database.js
 
 ### Kenneth Ng:
 - implemented "delete" function from `reminder_controller.js`
@@ -44,6 +45,15 @@
 - ran into many error messages but resolved a lot
 - worked for approx 2 hours but not complete yet
 
-### Ostin Bark:
-- Disturbed Roger while he's working
+
+# April 5th
+
+### Roger Hsieh:
+- Completed the 4/5 of the passport sprint criteria
+- [ x ] Authenticated users should not be able to see other authenticated users reminders. Only their own.
+- [ x ] Authenticated users should not be able to change other authenticated users reminders. Only their own.
+- [ x ] Authenticated users should not be able to delete other authenticated users reminders.
+- [ x ] You must include the ability for users to Login using Email & Password 
+- [   ] You must include the ability for ADMINS to remotely destroy a session. 
+- Have not completed the 5th criteria, which is the admin portion
 

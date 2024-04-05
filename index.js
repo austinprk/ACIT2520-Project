@@ -6,7 +6,7 @@ const session = require("express-session");
 const reminderController = require("./controller/reminder_controller");
 const authController = require("./controller/auth_controller");
 const userController = require("./controller/userController");
-const { ensureAuthenticated, forwardAuthenticated } = require("./middleware/checkAuth");
+const { ensureAuthenticated, forwardAuthenticated, isAdmin } = require("./middleware/checkAuth");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -45,6 +45,27 @@ app.get("/login", forwardAuthenticated,authController.login);
 app.post("/login", authController.loginSubmit);
 app.get("/register", authController.register);
 app.post("/register", authController.registerSubmit);
+
+app.get("/admin", isAdmin, (req, res) => {
+  req.sessionStore.all((error, sessions) => {
+    if (error) {
+      console.log(error);
+      res.redirect("/reminders");
+    } else {
+      res.render("admin", { user : req.user, sessions: sessions });
+    }}
+  )});
+
+app.get("/admin/destroy/:sessionId", isAdmin, (req, res) => {
+  req.sessionStore.destroy(req.params.sessionId, (error) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.redirect("/admin");
+    }
+  });
+});
 
 app.listen(3001, function () {
   console.log(

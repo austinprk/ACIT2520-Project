@@ -18,6 +18,11 @@ let userModel = {
     database.push(newUser);
     return newUser;
   },
+  checkRole : (user) => {
+    if(user.role === 'admin') {
+      res.redirect("/admin");
+    }
+  }
 };
 
 

@@ -4,6 +4,10 @@
     <p>Current Active Sessions: </p>
     <p>Session ID: <%= sessionId %></p>
     <p>User ID: <%= sessions[sessionId].passport.user %></p>
-    <button onclick="window.location.href='/admin/destroy/<%= sessionId %>'">Revoke Session</button>
+    <% if (Object.keys(sessions).length == 1) { %>
+     <button onclick="window.location.href='/admin/destroy/<%= sessionId %>'" disabled>Revoke Session</button>
+    <% } else { %>
+        <button onclick="window.location.href='/admin/destroy/<%= sessionId %>'">Revoke Session</button>
+    <% } %>
 <% }) %>
 

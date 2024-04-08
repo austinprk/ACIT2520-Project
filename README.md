@@ -62,3 +62,8 @@
 ### Austin Park:
 - Completed implementing ADMINS privileges on the website, enabling users with the "admin" role in database.js to destroy sessions.
 - Began development on the "Sign out" feature, which is not initially part of the project scope.
+
+# April 8th
+
+### Kenneth Ng:
+- Updated admin view to prevent admin from deleting session if there was only one session (the current session), which would result in too many redirects

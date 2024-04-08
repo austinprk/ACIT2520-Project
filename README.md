@@ -29,7 +29,7 @@
 ### Austin Park:
 - resolved the issue with the logo not apprearing on the login page by correcting the image path.
 
-## Apil 1st
+## April 1st
 
 ### Roger Hsieh:
 - attempted to create the admin role which can terminate other users' active session
@@ -60,5 +60,5 @@
 # April 5th
 
 ### Austin Park:
-- Completed implementing ADMINS previleges on the website, enabling users with the "admin" role in database.js to destroy sessions.
+- Completed implementing ADMINS privileges on the website, enabling users with the "admin" role in database.js to destroy sessions.
 - Began development on the "Sign out" feature, which is not initially part of the project scope.

@@ -33,6 +33,7 @@ let remindersController = {
       id: user.reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
+      theme: req.body.theme,
       completed: false,
     };
     user.reminders.push(reminder);
@@ -56,6 +57,7 @@ let remindersController = {
     });
     searchResult.title = req.body.title;
     searchResult.description = req.body.description;
+    searchResult.theme = req.body.theme;
     searchResult.completed = req.body.completed;
     res.redirect("/reminders");
 

@@ -67,3 +67,11 @@
 
 ### Kenneth Ng:
 - Updated admin view to prevent admin from deleting session if there was only one session (the current session), which would result in too many redirects
+
+# April 13th
+
+### Kenneth Ng:
+- Tried to figure out how to use unsplash API
+- Need to implement: 
+    - HTTP GET request to unsplash API with client_id, query --> `JSON.parse(object)["results"][0]["urls"]["regular"]`
+    - style image in CSS to crop to banner-appropriate height, apply bootstrap .img-fluid class

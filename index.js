@@ -41,7 +41,9 @@ app.post("/reminder/update/:id", reminderController.update);
 app.post("/reminder/delete/:id", reminderController.delete);
 
 // Login routes
-app.get("/login", forwardAuthenticated,authController.login);
+app.get("/login", forwardAuthenticated, (req, res) => {
+  res.render("auth/login", { hideNavbar: true });
+});
 app.post("/login", authController.loginSubmit);
 app.get("/register", authController.register);
 app.post("/register", authController.registerSubmit);

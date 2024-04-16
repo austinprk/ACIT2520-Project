@@ -75,3 +75,9 @@
 - Need to implement: 
     - HTTP GET request to unsplash API with client_id, query --> `JSON.parse(object)["results"][0]["urls"]["regular"]`
     - style image in CSS to crop to banner-appropriate height, apply bootstrap .img-fluid class
+
+# April 15th
+
+### Roger Hsieh:
+- Spent approximately 2 hours looking at how to hide nav bar from the login page
+- Successfully implemented the feature; the nav bar is now hidden in the login page

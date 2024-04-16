@@ -1,4 +1,3 @@
-let database = require("../database");
 const passport = require("../middleware/passport")
 
 let authController = {
@@ -21,7 +20,6 @@ let authController = {
     // implement later
   },
 };
-
 
 
 module.exports = authController;

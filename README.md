@@ -81,3 +81,10 @@
 ### Roger Hsieh:
 - Spent approximately 2 hours looking at how to hide nav bar from the login page
 - Successfully implemented the feature; the nav bar is now hidden in the login page
+
+# April 15th
+
+### Austin Park:
+- Refactored the code by removing unncessary files and lines, such as unused imports, and reorganizing it for better clarity.
+- Started working on Bonus activity 
+ 

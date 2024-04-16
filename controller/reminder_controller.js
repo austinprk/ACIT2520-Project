@@ -1,5 +1,4 @@
 let  { database } = require("../database");
-const { ensureAuthenticated, isAdmin } = require("../middleware/checkAuth");
 
 let remindersController = {
   isLoggedIn:(req,res) => {

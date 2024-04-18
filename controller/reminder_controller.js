@@ -1,4 +1,37 @@
 let  { database } = require("../database");
+const https = require("https");
+
+function unsplash_wrapper(keyword) {
+  let img_url = "";
+  const options = {
+    hostname: "api.unsplash.com",
+    path: `/search/photos?client_id=cVJHtIfCbRseVvJUttVhWUcoM4ibmpJG8P264gUVS1k&query=${keyword}`,
+    method: "GET",
+  }
+
+  const req = https.request(options, (res) => {
+    console.log("status code:", res.statusCode);
+    // console.log("headers:", res.headers);
+    res.on("data", (chunk) => {
+      img_url += chunk.toString("utf-8");
+    });
+    res.on("end", () => {
+      console.log("the stream has ended _smile_");
+    });
+    res.on("close", () => {
+      console.log("finally done with streams pls");
+      img_url = JSON.parse(img_url);
+      img_url = img_url["results"][0]["urls"]["regular"];
+      console.log("img_url", img_url);
+    });
+  });
+
+  req.on("error", (err) => {
+    console.log(err);
+  });
+
+  req.end();
+}
 
 let remindersController = {
   isLoggedIn:(req,res) => {
@@ -32,7 +65,7 @@ let remindersController = {
       id: user.reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
-      theme: req.body.theme,
+      theme: unsplash_wrapper(req.body.theme),
       completed: false,
     };
     user.reminders.push(reminder);
@@ -56,7 +89,7 @@ let remindersController = {
     });
     searchResult.title = req.body.title;
     searchResult.description = req.body.description;
-    searchResult.theme = req.body.theme;
+    searchResult.theme = unsplash_wrapper(req.body.theme);
     searchResult.completed = req.body.completed;
     res.redirect("/reminders");
 

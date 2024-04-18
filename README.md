@@ -88,3 +88,17 @@
 - Refactored the code by removing unncessary files and lines, such as unused imports, and reorganizing it for better clarity.
 - Started working on Bonus activity 
  
+# April 17th
+
+### Kenneth Ng:
+- Spent ~4 hours trying to finish bonus
+    - Hours 0-1: implemented https GET request to unsplash API
+    - Hours 1-2: wrestled with streams 
+        - [https.request is a readable stream "under the hood" if you will](https://nodejs.org/api/https.html#https_https_request_options_callback)
+    - Hours 2-4: troubleshooting the asynchronous-ity of https.request
+        - Tried wrapping everything in a promise and then using Promise.all()
+        - Tried wrapping only the https.request code in a Promise
+        - Tried chaining Promise.then() but I kept getting an error saying wrapper(theme).then() is not a function - I believe it's due to https.request being a readable stream under the hood
+    - Ultimately reverted code back to before I tried to wrap it in a Promise
+
+    - Next step: figure out how to make unsplash_wrapper() return the url as intended
